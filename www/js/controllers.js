@@ -27,7 +27,6 @@ angular.module('ChecklistApp.controllers', [])
 
 .controller('ChecklistsCtrl', function(ChecklistsModel, $rootScope) {
 	var vm = this;
-  console.log("HELLO THERE MATT")
 
 	function getAll() {
 
