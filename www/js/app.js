@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var myApp = angular.module('ChecklistApp', ['ionic', 'ChecklistApp.controllers', 'backand', 'ChecklistApp.services'])
+angular.module('ChecklistApp', ['ionic', 'ChecklistApp.controllers', 'backand', 'ChecklistApp.services'])
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -22,16 +22,17 @@ var myApp = angular.module('ChecklistApp', ['ionic', 'ChecklistApp.controllers',
   });
 }).config(function(BackandProvider, $stateProvider, $urlRouterProvider, $httpProvider){
 
+
+  BackandProvider.setAnonymousToken('53bcb5fa-51bb-45b3-976c-1dd2d037b754');
+  //BackandProvider.setSignUpToken('Your SignUp Token');
+  BackandProvider.setAppName('billockchecklist');
+
   $stateProvider
   // setup an abstract state for the tabs directive
     .state('checklists', {
       url: '/checklists',
-      views: {
-        'checklists': {
-          templateUrl: 'templates/checklists.html',
-          controller: 'ChecklistsCtrl as vm'
-        }
-      }
+      templateUrl: 'templates/checklists.html',
+      controller: 'ChecklistsCtrl as vm'
     })
     /*.state('tab.dashboard', {
       url: '/dashboard',
@@ -56,4 +57,8 @@ var myApp = angular.module('ChecklistApp', ['ionic', 'ChecklistApp.controllers',
 
 
   $httpProvider.interceptors.push('httpInterceptor');
+
+})
+.run(function($rootScope, $state) {
+  $state.go('checklists');
 })

@@ -1,6 +1,6 @@
 angular.module('ChecklistApp.controllers', [])
 
-.controller('LoginCtrl', function(Backand, $state, $rootScope, LoginService){
+/*.controller('LoginCtrl', function(Backand, $state, $rootScope, LoginService){
   var login = this;
 
   function signin() {
@@ -23,10 +23,11 @@ angular.module('ChecklistApp.controllers', [])
 
   login.signin = signin;
   login.signout = signout;
-})
+})*/
 
-.controller('ChecklistController', function(ChecklistsModel, $rootScope) {
+.controller('ChecklistsCtrl', function(ChecklistsModel, $rootScope) {
 	var vm = this;
+  console.log("HELLO THERE MATT")
 
 	function getAll() {
 
@@ -83,7 +84,7 @@ angular.module('ChecklistApp.controllers', [])
     vm.isCreating = false;
   }
 
-  vm.objects = [];
+  vm.data = [];
   vm.edited = null;
   vm.isEditing = false;
   vm.isCreating = false;
