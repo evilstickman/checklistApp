@@ -21,5 +21,39 @@ var myApp = angular.module('ChecklistApp', ['ionic', 'ChecklistApp.controllers',
     }
   });
 }).config(function(BackandProvider, $stateProvider, $urlRouterProvider, $httpProvider){
+
+  $stateProvider
+  // setup an abstract state for the tabs directive
+    .state('checklists', {
+      url: '/checklists',
+      views: {
+        'checklists': {
+          templateUrl: 'templates/checklists.html',
+          controller: 'ChecklistsCtrl as vm'
+        }
+      }
+    })
+    /*.state('tab.dashboard', {
+      url: '/dashboard',
+      views: {
+        'tab-dashboard': {
+          templateUrl: 'templates/tab-dashboard.html',
+          controller: 'DashboardCtrl as vm'
+        }
+      }
+    })
+    .state('tab.login', {
+      url: '/login',
+      views: {
+        'tab-login': {
+          templateUrl: 'templates/tab-login.html',
+          controller: 'LoginCtrl as login'
+        }
+      }
+    });*/
+
+  $urlRouterProvider.otherwise('/checklists');
+
+
   $httpProvider.interceptors.push('httpInterceptor');
 })
