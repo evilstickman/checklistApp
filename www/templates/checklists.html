@@ -4,10 +4,14 @@
             <!-- LIST -->
             <div class="bar bar-subheader">
                 <div class="list" ng-repeat="object in vm.data">
-                    <div class="item item-icon-right item-icon-left">
+                    <div class="item">
                       <div class="item-content">
-                        <h2 class="text-left">{{object.name}}</h2>
-                        {{object.description}}
+                        <div class="bigwhite">
+                          <span>{{object.name}}</span>
+                        </div>
+                        <!--<div class="littlewhite">
+                          {{object.description}}
+                        </div>-->
                       </div>
                     </div>
                 </div>
