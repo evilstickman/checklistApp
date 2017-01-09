@@ -18,3 +18,22 @@
 .item-icon-left .icon, .item-icon-right .icon {
   font-size: 22px;
 }
+
+.item {
+  background-color: lightblue;
+  border-radius: 5px;
+  margin-left: 10px;
+  width: 200px;
+  height: 200px;
+  position: relative;
+  text-align: left;
+}
+
+.item-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: left;
+  align: left;
+  overflow-wrap: break-word;
+}
