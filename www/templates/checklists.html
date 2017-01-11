@@ -4,6 +4,7 @@
             <!-- LIST -->
             <div class="bar bar-subheader">
                 <div class="list" ng-repeat="object in vm.data">
+                  <a href="#/checklists/{{object.id}}">
                     <div class="item">
                       <div class="item-content">
                         <div class="bigwhite">
@@ -14,6 +15,7 @@
                         </div>-->
                       </div>
                     </div>
+                  </a>
                 </div>
             </div>
         </ion-content>

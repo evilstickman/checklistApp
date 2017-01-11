@@ -1,0 +1,20 @@
+<ion-view view-title="Checklist">
+    <div>
+        <ion-content class="padding has-header">
+            <!-- LIST -->
+              <div class="item">
+                <div class="item-content">
+                  <span>{{vm.data.name}}</span> <br />
+                  <span>{{vm.data.description}}</span>
+                </div>
+              </div>
+              <div ng-repeat="object in vm.data.entries">
+                <span>{{object.checked}}</span>
+                <span>{{object.name}}</span>
+                <br />
+              </div>
+
+            <a href = "#/checklists"> Return to list </a>
+        </ion-content>
+    </div>
+</ion-view>

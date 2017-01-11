@@ -34,6 +34,11 @@ angular.module('ChecklistApp', ['ionic', 'ChecklistApp.controllers', 'backand', 
       templateUrl: 'templates/checklists.html',
       controller: 'ChecklistsCtrl as vm'
     })
+    .state('checklist', {
+      url: '/checklists/:checklistId',
+      templateUrl: 'templates/single_checklist.html',
+      controller: 'SingleChecklistCtrl as vm'
+    })
     /*.state('tab.dashboard', {
       url: '/dashboard',
       views: {

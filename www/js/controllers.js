@@ -104,3 +104,47 @@ angular.module('ChecklistApp.controllers', [])
   getAll();
 
 })
+
+
+.controller('SingleChecklistCtrl', function(ChecklistsModel, $rootScope, $stateParams) {
+  var vm = this;
+  var checklistId = $stateParams.checklistId;
+
+  function getChecklist() {
+
+    ChecklistsModel.fetchDeep(checklistId)
+      .then(function(result){
+        vm.data = result.data;
+      });
+  }
+
+  function create(object) {
+    ChecklistsModel.create(object)
+        .then(function (result) {
+          getChecklist();
+        });
+  }
+
+  function update(object) {
+    ChecklistsModel.update(object.id, object)
+        .then(function (result) {
+          getChecklist();
+        });
+  }
+
+  function deleteObject(id) {
+    ChecklistsModel.delete(id)
+        .then(function (result) {
+          getChecklist();
+        });
+  }
+
+  vm.data = [];
+  vm.getChecklist = getChecklist;
+  vm.create = create;
+  vm.update = update;
+  vm.delete = deleteObject;
+
+  getChecklist();
+
+})
