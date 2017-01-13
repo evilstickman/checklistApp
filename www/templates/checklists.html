@@ -1,12 +1,13 @@
-<ion-view view-title="Checklists">
+<ion-view view-title="My Lists">
+
+  <ion-content>
     <div ng-if="vm.isCreating()">
-        <ion-content class="padding has-header">
             <!-- CREATING -->
-            <div class="bar bar-header">
+            <div>
                 <h2 class="title">Create Checklist</h2>
                 <span ng-click="vm.cancelCreate()" class="cancel-create">Cancel</span>
             </div>
-            <div class="bar bar-subheader">
+            <div>
                 <form class="create-form" role="form"
                       ng-submit="vm.create(vm.newObject)" novalidate>
                     <div class="list">
@@ -33,30 +34,30 @@
                     <button class="button button-block button-positive" type="submit">Create</button>
                 </form>
             </div>
-        </ion-content>
-    </div>
-    <div ng-if="!vm.isCreating()">
-        <ion-content class="padding has-header">
-            <!-- LIST -->
-            <div class="bar bar-header">
-                <span ng-click="vm.startCreate()"><i class='icon ion-plus-round new-item'> Add Checklist</i></span>
+      </div>
+      <div ng-if="!vm.isCreating()">
+        <div class="row responsive-md bottom_padded" ng-repeat='object in vm.data' ng-if='$index%2 == 0'>
+          <a class="item" ng-if='$index < vm.data.length' href="#/checklists/{{vm.data[$index].id}}" style="background: color(lightblue); background-image: url('{{vm.data[$index].image_url}}'); background-position: center">
+            <div >
+              <div>
+                <span class='item-content bigwhite'>{{vm.data[$index].name}}</span>
+              </div>
+              <!--<div class="littlewhite">
+                  {{object.description}}
+                </div>-->
             </div>
-            <div class="bar bar-subheader">
-                <div class="list" ng-repeat="object in vm.data">
-                  <a href="#/checklists/{{object.id}}">
-                    <div class="item" style="background: color; background-image: url('{{object.image_url}}'); background-position: center">
-                      <div class="item-content">
-                        <div class="bigwhite">
-                          <span>{{object.name}}</span>
-                        </div>
-                        <!--<div class="littlewhite">
-                          {{object.description}}
-                        </div>-->
-                      </div>
-                    </div>
-                  </a>
-                </div>
+          </a>
+          <a class="item" ng-if='($index + 1) < vm.data.length' href="#/checklists/{{vm.data[$index+1].id}}" style="background: color(lightblue); background-image: url('{{vm.data[$index+1].image_url}}'); background-position: center">
+            <div >
+                <span class='item-content bigwhite'>{{vm.data[$index+1].name}}</span>
+              <!--<div class="littlewhite">
+                  {{object.description}}
+                </div>-->
             </div>
-        </ion-content>
-    </div>
+          </a>
+        </div>
+          
+      </div>      
+    </ion-content>
+  
 </ion-view>
