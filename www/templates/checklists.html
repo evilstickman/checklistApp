@@ -44,28 +44,14 @@
             <div class="bar bar-subheader">
                 <div class="list" ng-repeat="object in vm.data">
                   <a href="#/checklists/{{object.id}}">
-                    <div ng-if="object.image_url != ''">
-                      <div class="item" style="background: url('{{object.image_url}}'); background-position: center">
-                        <div class="item-content">
-                          <div class="bigwhite">
-                            <span>{{object.name}}</span>
-                          </div>
-                          <!--<div class="littlewhite">
-                            {{object.description}}
-                          </div>-->
+                    <div class="item" style="background: color; background-image: url('{{object.image_url}}'); background-position: center">
+                      <div class="item-content">
+                        <div class="bigwhite">
+                          <span>{{object.name}}</span>
                         </div>
-                      </div>
-                    </div>
-                    <div ng-if="object.image_url === ''">
-                      <div class="item">
-                        <div class="item-content">
-                          <div class="bigwhite">
-                            <span>{{object.name}}</span>
-                          </div>
-                          <!--<div class="littlewhite">
-                            {{object.description}}
-                          </div>-->
-                        </div>
+                        <!--<div class="littlewhite">
+                          {{object.description}}
+                        </div>-->
                       </div>
                     </div>
                   </a>
