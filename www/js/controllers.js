@@ -80,13 +80,22 @@ angular.module('ChecklistApp.controllers', [])
 
   function cancelCreate() {
     initCreateForm();
-    vm.isCreating = false;
+    vm.creating = false;
+  }
+
+  function startCreate() {
+    initCreateForm();
+    vm.creating = true;
+  }
+
+  function isCreating() {
+    return vm.creating;
   }
 
   vm.data = [];
   vm.edited = null;
   vm.isEditing = false;
-  vm.isCreating = false;
+  vm.creating = false;
   vm.getAll = getAll;
   vm.create = create;
   vm.update = update;
@@ -96,9 +105,9 @@ angular.module('ChecklistApp.controllers', [])
   vm.cancelEditing = cancelEditing;
   vm.cancelCreate = cancelCreate;
 
-  //$rootScope.$on('authorized', function() {
-  //  getAll();
-  //});
+  vm.startCreate = startCreate;
+
+  vm.isCreating = isCreating;
 
   initCreateForm();
   getAll();
