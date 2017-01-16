@@ -1,8 +1,19 @@
 .icon.new-item {
   position: absolute;
-  right: 20px;
   font-size: 20px;
-  bottom: 13px;
+  zoom: 2;
+  color: #ffc900;
+  bottom:0;
+  right:0;
+}
+.icon.new-item-left {
+  position: relative;
+  font-size: 20px;
+  zoom: 2;
+  color: #ffc900;
+  bottom:0;
+  left:0;
+  vertical-align: 'center'
 }
 .cancel-create {
   position: absolute;
@@ -53,12 +64,4 @@
     position:absolute;
     bottom:0;
     right:0;
-}
-
-.icon.new-item {
-  zoom: 2;
-  color: #ffc900;
-    bottom:0;
-    right:0;
-}
 }
