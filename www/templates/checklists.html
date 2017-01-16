@@ -36,6 +36,10 @@
             </div>
       </div>
       <div ng-if="!vm.isCreating()">
+
+        <div class="bar bar-header">
+            <span ng-click="vm.startCreate()"><i class='icon ion-plus-round new-item'> Add Item</i></span>
+        </div>
         <div class="row responsive-md bottom_padded" ng-repeat='object in vm.data' ng-if='$index%2 == 0'>
           <a class="item" ng-if='$index < vm.data.length' href="#/checklists/{{vm.data[$index].id}}" style="background: color(lightblue); background-image: url('{{vm.data[$index].image_url}}'); background-position: center">
             <div >
