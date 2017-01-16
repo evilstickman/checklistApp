@@ -115,45 +115,90 @@ angular.module('ChecklistApp.controllers', [])
 })
 
 
-.controller('SingleChecklistCtrl', function(ChecklistsModel, $rootScope, $stateParams) {
+.controller('SingleChecklistCtrl', function(EntriesModel, $rootScope, $stateParams) {
   var vm = this;
   var checklistId = $stateParams.checklistId;
 
   function getChecklist() {
 
-    ChecklistsModel.fetchDeep(checklistId)
+    EntriesModel.fetch(checklistId)
       .then(function(result){
         vm.data = result.data;
       });
   }
 
   function create(object) {
-    ChecklistsModel.create(object)
+    EntriesModel.create(object)
         .then(function (result) {
           getChecklist();
         });
   }
 
   function update(object) {
-    ChecklistsModel.update(object.id, object)
+    EntriesModel.update(object.id, object)
         .then(function (result) {
           getChecklist();
         });
   }
 
   function deleteObject(id) {
-    ChecklistsModel.delete(id)
+    EntriesModel.delete(id)
         .then(function (result) {
           getChecklist();
         });
   }
 
+
+  function initCreateForm() {
+    vm.newObject = { checked: false, collection: vm.data.id, name: '' };
+  }
+
+  function setEdited(object) {
+    vm.edited = angular.copy(object);
+    vm.isEditing = true;
+  }
+
+  function isCurrent(id) {
+    return vm.edited !== null && vm.edited.id === id;
+  }
+
+  function cancelEditing() {
+    vm.edited = null;
+    vm.isEditing = false;
+  }
+
+  function cancelCreate() {
+    initCreateForm();
+    vm.creating = false;
+  }
+
+  function startCreate() {
+    initCreateForm();
+    vm.creating = true;
+  }
+
+  function isCreating() {
+    return vm.creating;
+  }
+
   vm.data = [];
+  vm.edited = null;
+  vm.isEditing = false;
+  vm.creating = false;
   vm.getChecklist = getChecklist;
   vm.create = create;
   vm.update = update;
   vm.delete = deleteObject;
+  vm.setEdited = setEdited;
+  vm.isCurrent = isCurrent;
+  vm.cancelEditing = cancelEditing;
+  vm.cancelCreate = cancelCreate;
 
+  vm.startCreate = startCreate;
+
+  vm.isCreating = isCreating;
+
+  initCreateForm();
   getChecklist();
 
 })

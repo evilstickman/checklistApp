@@ -53,7 +53,7 @@ angular.module('ChecklistApp.services', [])
   };
 })
 
-/*.service('EntriesModel', function ($http, Backand) {
+.service('EntriesModel', function ($http, Backand) {
   var service = this,
       baseUrl = '/1/objects/',
       objectName = 'entries/';
@@ -85,4 +85,4 @@ angular.module('ChecklistApp.services', [])
   service.delete = function (id) {
     return $http.delete(getUrlForId(id));
   };
-})*/
+})

@@ -15,7 +15,19 @@
               </div>
 
               <div>
-                  <span ng-click="vm.startCreate()"><i class='icon ion-ios-plus new-item-left'></i> Add Checklist Item</span>
+                  <span ng-click="vm.startCreate()">
+                    <form class="create-form" role="form"
+                        ng-submit="vm.create(vm.newObject)" novalidate>
+                          <label class="item-input item-stacked-label">
+                            
+                              <i class="icon ion-ios-plus new-item-left" type="submit"></i>
+                              <input type="text" class="form-control"
+                                     ng-model="vm.newObject.name"
+                                     placeholder="Enter name">
+                          </label>
+                    </form>
+                      
+                  </span>
               </div>
 
             <a href = "#/checklists"> Return to list </a>
