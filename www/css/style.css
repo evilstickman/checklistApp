@@ -21,7 +21,6 @@
 
 .bottom_padded {
   padding-bottom: 10px;
-  
 }
 
 .item {
@@ -31,6 +30,7 @@
   width: 200px;
   height: 200px;
   position: relative;
+  padding-top: 10px;
 }
 
 .item-content {
@@ -44,4 +44,21 @@
   color: white;
   font-size: 24pt;  
   padding-bottom: 20px;
+}
+
+.bottom_container {
+    position:relative;
+}
+.bottom_right {
+    position:absolute;
+    bottom:0;
+    right:0;
+}
+
+.icon.new-item {
+  zoom: 2;
+  color: #ffc900;
+    bottom:0;
+    right:0;
+}
 }
